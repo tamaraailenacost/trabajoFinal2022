@@ -1,0 +1,38 @@
+[
+  {
+    "id": "producto-0000000136204",
+    "key": "producto-0000000136204",
+    "value": {
+      "_id": "producto-0000000136204",
+      "_rev": "1-01b52fe46799632a97c20148e4844861",
+      "nombre": "REJ.SECAVAJ.43X55CM",
+      "uuid": "producto-0000000136204",
+      "marca": "SIN MARCA",
+      "presentacion": "1.0 ud"
+    }
+  },
+  {
+    "id": "producto-0000000144278",
+    "key": "producto-0000000144278",
+    "value": {
+      "_id": "producto-0000000144278",
+      "_rev": "1-93172ef9ff02582aa25ce2b3d90dc3f2",
+      "nombre": "REJILLA AUTO 50X50CM",
+      "uuid": "producto-0000000144278",
+      "marca": "SIN MARCA",
+      "presentacion": "1.0 ud"
+    }
+  },
+  {
+    "id": "producto-0000000133333",
+    "key": "producto-0000000136204",
+    "value": {
+      "_id": "producto-0000000136204",
+      "_rev": "1-01b52fe46799632a97c20148e4844861",
+      "nombre": "REJ.SECAVAJ.43X55CM",
+      "uuid": "producto-0000000136204",
+      "marca": "Marcos",
+      "presentacion": "Muschetto"
+    }
+  }
+]
