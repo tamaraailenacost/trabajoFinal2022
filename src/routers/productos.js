@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const routerProducts = Router();
+const { isAdmin } = require('./Admin');
 
 
 const {
@@ -18,13 +19,13 @@ routerProducts.get('/', getProducts);
 routerProducts.get('/:id', getProductId);
 
 
-routerProducts.post('/', postProducts);
+routerProducts.post('/',isAdmin, postProducts);
 
 
-routerProducts.put('/:id', putProducts);
+routerProducts.put('/:id',isAdmin, putProducts);
 
 
-routerProducts.delete('/:id', deleteProducts);
+routerProducts.delete('/:id',isAdmin, deleteProducts);
 
 
 module.exports = routerProducts;

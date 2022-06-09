@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const routerCart = Router();
-
+const { isAdmin } = require('./Admin');
 
 const {
     postCart,
@@ -11,15 +11,15 @@ const {
 } = require('../controllers/api-carrito.js');
 
 
-routerCart.post('/', postCart);
+routerCart.post('/',isAdmin, postCart);
 
-routerCart.delete('/:id', deleteProductCart);
+routerCart.delete('/:id',isAdmin, deleteProductCart);
 
-routerCart.get('/:id/productos', getProductsCart);
+routerCart.get('/:id/productos',isAdmin, getProductsCart);
 
-routerCart.post('/:id/productos', postProductsinCart);
+routerCart.post('/:id/productos',isAdmin, postProductsinCart);
 
-routerCart.delete('/', deleteCart);
+routerCart.delete('/',isAdmin, deleteCart);
 
 
 
