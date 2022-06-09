@@ -1,29 +1,38 @@
-const { CartFile } = require('../models/Contenedor');
-const { param } = require('../routers/tester');
+const { CartFile } = require('../models/CartFile');
 const data = new CartFile();
 
 /**
  * POST '/' -> crea un carrito vacio.
  * @returns {string} idCart  carrito.
  */
-const postCart = ((req, res) => {
+const postCart = (async(req, res) => {
     
-    const { products, id } = req.body;
+    const { object } = req.body;
     try {
-        const idCart = data.save( products, id);
+        const idCart = await data.save( object);
         console.log(idCart);
         res.json(idCart);
     } catch (error) {
+        res.status(500).json(err.message);
         throw new Error
     }
 });
+
 
 
 /**
  * DELETE '/:id' Vacía un carrito y lo elimina.
  *  @param  { string } id
  */
-const deleteProductCart = ((req, res) => {
+const deleteProductCart = (async(req, res) => {
+    const id = req.params.id
+    try {
+        check = await data.deleteById(id);
+        res.status(200).json({ check })
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+        throw new Error
+    }
 
     
 });
@@ -36,9 +45,14 @@ const deleteProductCart = ((req, res) => {
  */
 const getProductsCart = ((req, res) => {
     const idCart = req.params.id;
-    console.log(id);
-    const found = data.getById(idCart);
-    res.json(found);
+    //console.log(idCart);
+    try {
+        const found = data.getById(idCart);
+        res.status(200).json(mycart)
+    } catch (err) {
+        res.status(500).json(err.message);
+        throw new Error
+    }
     
 });
 
@@ -46,12 +60,25 @@ const getProductsCart = ((req, res) => {
 /**
  * POST: '/:id/productos' - Para incorporar productos al carrito por su id de producto
  * @param  { string } idCart
+ * @param  { object } body
  * 
  */
- const postProductsinCart = ((req, res) => {
+ const postProductsinCart = (async(req, res) => {
 
-    
+    const body = req.body
+    const idCart = req.params.id
+    try {
+        const saved = await data.addProduct( body, idCart)
+        if (!saved) {
+            res.json(`eL ${idCart} no existe`)
+        }
+        res.status(200).json(saved)
+    } catch (err) {
+        res.status(500).json(err.message);
+        throw new Error
+    }
 });
+
 
 
 /**
@@ -60,8 +87,20 @@ producto
  * @param  {string} id
  * @param  {string} id_prod
  */
- const deleteCart = ((req, res) => {
-
+ const deleteCart = (async(req, res) => {
+    const idCart = req.params.id
+    const idProd = req.params.id_prod
+    try {
+        const deleted = await data.deleteById(idCart, idProd)
+        if (!deleted) {
+            res.json("no se pudo eliminar el producto")
+        } else {
+            res.json(mycart, "producto eliminado")
+        }
+    } catch (err) {
+        res.status(500).json(err.message);
+        throw new Error
+    }
     
 });
 

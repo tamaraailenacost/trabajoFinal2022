@@ -8,7 +8,7 @@ const {
     getProductsCart,
     postProductsinCart,
     deleteCart
-} = require('../controllers/api-products');
+} = require('../controllers/api-carrito.js');
 
 
 routerCart.post('/', postCart);

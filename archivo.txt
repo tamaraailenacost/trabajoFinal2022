@@ -34,5 +34,33 @@
       "marca": "Marcos",
       "presentacion": "Muschetto"
     }
+  },
+  {
+    "id": "123",
+    "time": "1203444",
+    "producto": {
+      "id": "producto-0000000136204",
+      "key": "producto-0000000136204",
+      "value": {
+        "_id": "producto-0000000136204",
+        "_rev": "1-01b52fe46799632a97c20148e4844861",
+        "nombre": "REJ.SECAVAJ.43X55CM",
+        "uuid": "producto-0000000136204",
+        "marca": "SIN MARCA",
+        "presentacion": "1.0 ud"
+      }
+    }
+  },
+  {
+    "id": "producto-0000000136204",
+    "key": "producto-0000000136204",
+    "value": {
+      "_id": "producto-0000000136204",
+      "_rev": "1-01b52fe46799632a97c20148e4844861",
+      "nombre": "REJ.SECAVAJ.43X55CM",
+      "uuid": "producto-0000000136204",
+      "marca": "SIN MARCA",
+      "presentacion": "1.0 ud"
+    }
   }
 ]
